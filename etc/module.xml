@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Mavenbird_ProductPriceHistory" setup_version="1.0.0">
+
+        <sequence>
+            <!-- Iska matlab: pehle Magento_Catalog load ho, phir hamara module -->
+            <!-- Kyunki hum Catalog ke products use karte hain -->
+            <module name="Magento_Catalog"/>
+        </sequence>
+
+    </module>
+</config>

@@ -1,0 +1,11 @@
+<?php
+/** @var \Magento\Backend\Block\Template $block */
+$backUrl = $block->getUrl('pricehistory/index/index');
+?>
+<div style="padding: 15px 0 10px 0;">
+    <a href="<?= $escaper->escapeUrl($backUrl) ?>"
+       class="action-default scalable back"
+       style="margin-bottom:10px;">
+        <span><?= __('← Back to Price History List') ?></span>
+    </a>
+</div>

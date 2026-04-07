@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+
+    <table name="mavenbird_product_price_history" resource="default" engine="innodb"
+           comment="Product Price History Table">
+
+        <column xsi:type="int"
+                name="id"
+                padding="10"
+                unsigned="true"
+                nullable="false"
+                identity="true"    
+                comment="Record ID"/>
+
+        <column xsi:type="int"
+                name="product_id"
+                padding="10"
+                unsigned="true"
+                nullable="false"
+                comment="Product ID"/>
+
+        <column xsi:type="varchar"
+                name="sku"
+                length="64"
+                nullable="false"
+                comment="Product SKU"/>
+
+        <column xsi:type="decimal"
+                name="old_price"
+                scale="4"          
+                precision="12"     
+                nullable="true"
+                comment="Old Price"/>
+
+        <column xsi:type="decimal"
+                name="new_price"
+                scale="4"
+                precision="12"
+                nullable="false"
+                comment="New Price"/>
+
+        <column xsi:type="varchar"
+                name="store_id"
+                length="10"
+                nullable="false"
+                default="0"
+                comment="Store ID"/>
+
+
+        <column xsi:type="varchar"
+                name="changed_by_user"
+                length="128"
+                nullable="true"
+                comment="Admin User Who Changed Price"/>
+
+                
+        <column xsi:type="timestamp"
+                name="changed_at"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+                comment="Date of Change"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <index referenceId="MAVENBIRD_PRODUCT_PRICE_HISTORY_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+
+    </table>
+</schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Mavenbird_ProductPriceHistory::menu"   
+            title="Price History"                   
+            module="Mavenbird_ProductPriceHistory"     
+            sortOrder="100"                         
+            parent="Magento_Catalog::catalog"       
+            action="pricehistory/index/index"       
+            resource="Mavenbird_ProductPriceHistory::menu" 
+        />
+    </menu>
+</config>

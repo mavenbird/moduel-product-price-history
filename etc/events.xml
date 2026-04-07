@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <!-- Event naam: catalog_product_save_after -->
+    <!-- Yeh event tab fire hota hai jab koi product save hota hai admin mein -->
+    <event name="catalog_product_save_after">
+
+        <!-- name: observer ka unique naam (kuch bhi rakho) -->
+        <!-- instance: konsi PHP class chalani hai -->
+        <observer name="mavenbird_pricehistory_save"
+                  instance="Mavenbird\ProductPriceHistory\Observer\ProductSaveAfter"/>
+
+    </event>
+</config>

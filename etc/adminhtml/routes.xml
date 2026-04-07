@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+
+    <!-- id="admin" matlab admin router use karo -->
+    <router id="admin">
+
+        <!-- frontName: URL mein kya aayega -->
+        <!-- Example: yourdomain.com/admin/pricehistory/index/index -->
+        <route id="pricehistory" frontName="pricehistory">
+            <module name="Mavenbird_ProductPriceHistory"/>
+        </route>
+
+    </router>
+</config>

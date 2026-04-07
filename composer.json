@@ -1,0 +1,30 @@
+{
+  "name": "mavenbird/module-product-price-history",
+  "description": "Magento 2 module for tracking product price history and displaying price changes in admin grid.",
+  "require": {
+      "php": ">=8.0.0",
+      "mavenbird/module-core": "*"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+      {
+        "name": "Mavenbird",
+        "email": "support@mavenbird.com",
+        "homepage": "https://www.mavenbird.com",
+        "role": "Technical Support"
+      }
+  ],
+  "autoload": {
+      "files": [
+          "registration.php"
+      ],
+      "psr-4": { 
+          "Mavenbird\\ProductPriceHistory\\": ""
+      }
+  }
+}
