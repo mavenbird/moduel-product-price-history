@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
@@ -9,14 +8,12 @@
             </item>
         </item>
     </argument>
-
     <settings>
         <spinner>pricehistory_view_columns</spinner>
         <deps>
             <dep>pricehistory_view_listing.pricehistory_view_listing_data_source</dep>
         </deps>
     </settings>
-
     <dataSource name="pricehistory_view_listing_data_source"
                 component="Magento_Ui/js/grid/provider">
         <settings>
@@ -31,20 +28,18 @@
             name="pricehistory_view_listing_data_source">
             <settings>
                 <primaryFieldName>id</primaryFieldName>
-                <!-- BUG FIX #1: requestFieldName 'product_id' rakho taaki grid filter galat na ho -->
                 <requestFieldName>product_id</requestFieldName>
             </settings>
         </dataProvider>
     </dataSource>
-
     <listingToolbar name="listing_top">
-        <settings><sticky>true</sticky></settings>
+        <settings>
+            <sticky>true</sticky>
+        </settings>
         <paging name="listing_paging"/>
         <filters name="listing_filters"/>
     </listingToolbar>
-
     <columns name="pricehistory_view_columns">
-
         <column name="id">
             <settings>
                 <filter>textRange</filter>
@@ -52,30 +47,24 @@
                 <sorting>desc</sorting>
             </settings>
         </column>
-
-        <!-- BUG FIX #3: Product Name column add kiya view page pe -->
         <column name="product_name">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Product Name</label>
             </settings>
         </column>
-
         <column name="old_price">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Old Price</label>
             </settings>
         </column>
-
         <column name="new_price">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">New Price</label>
             </settings>
         </column>
-
-        <!-- BUG FIX #2: bodyTmpl set kiya HTML render ke liye — PriceDiff.php mein bhi fix hai -->
         <column name="price_diff"
                 class="Mavenbird\ProductPriceHistory\Ui\Component\Listing\Column\PriceDiff">
             <settings>
@@ -83,14 +72,12 @@
                 <bodyTmpl>ui/grid/cells/html</bodyTmpl>
             </settings>
         </column>
-
         <column name="store_id">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Store ID</label>
             </settings>
         </column>
-
         <column name="changed_at"
                 class="Magento\Ui\Component\Listing\Columns\Date"
                 component="Magento_Ui/js/grid/columns/date">
@@ -100,13 +87,11 @@
                 <label translate="true">Changed At</label>
             </settings>
         </column>
-
         <column name="changed_by_user">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Changed By</label>
             </settings>
         </column>
-
     </columns>
 </listing>

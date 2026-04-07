@@ -1,4 +1,5 @@
 <?php
+
 namespace Mavenbird\ProductPriceHistory\Ui\DataProvider\PriceHistory;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
@@ -23,18 +24,15 @@ class DataProvider extends AbstractDataProvider
         /** @var \Mavenbird\ProductPriceHistory\Model\ResourceModel\PriceHistory\Collection $collection */
         $collection = $this->collection;
 
-        // Sirf latest entry per product — subquery se max id filter
         $connection = $collection->getResource()->getConnection();
         $mainTable  = $collection->getMainTable();
 
-        // Latest ID per product_id nikalo
         $subquery = $connection->select()
             ->from($mainTable, ['max_id' => new \Zend_Db_Expr('MAX(id)')])
             ->group('product_id');
 
         $collection->getSelect()->where('main_table.id IN (?)', $subquery);
 
-        // Product name join karo
         $productTable = $connection->getTableName('catalog_product_entity');
         $varcharTable = $connection->getTableName('catalog_product_entity_varchar');
         $eavTable     = $connection->getTableName('eav_attribute');

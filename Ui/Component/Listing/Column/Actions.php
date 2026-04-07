@@ -25,7 +25,6 @@ class Actions extends Column
         }
 
         foreach ($dataSource['data']['items'] as &$item) {
-            // product_id se View History URL banao
             $item[$this->getData('name')] = [
                 'view' => [
                     'href'  => $this->urlBuilder->getUrl(

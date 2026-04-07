@@ -1,4 +1,5 @@
 <?php
+
 namespace Mavenbird\ProductPriceHistory\Observer;
 
 use Magento\Framework\Event\Observer;
@@ -26,7 +27,6 @@ class ProductSaveAfter implements ObserverInterface
             return;
         }
 
-        // Admin user ka naam lo
         $adminUser = $this->adminSession->getUser();
         $userName  = $adminUser ? $adminUser->getUserName() : 'system';
 

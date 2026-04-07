@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">
@@ -9,14 +8,12 @@
             </item>
         </item>
     </argument>
-
     <settings>
         <spinner>pricehistory_columns</spinner>
         <deps>
             <dep>pricehistory_listing.pricehistory_listing_data_source</dep>
         </deps>
     </settings>
-
     <dataSource name="pricehistory_listing_data_source"
                 component="Magento_Ui/js/grid/provider">
         <settings>
@@ -35,9 +32,10 @@
             </settings>
         </dataProvider>
     </dataSource>
-
     <listingToolbar name="listing_top">
-        <settings><sticky>true</sticky></settings>
+        <settings>
+            <sticky>true</sticky>
+        </settings>
         <paging name="listing_paging"/>
         <filters name="listing_filters"/>
         <massaction name="listing_massaction"
@@ -54,11 +52,8 @@
                 </settings>
             </action>
         </massaction>
-
     </listingToolbar>
-
     <columns name="pricehistory_columns">
-
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="childDefaults" xsi:type="array">
@@ -75,18 +70,11 @@
                 </item>
             </item>
         </argument>
-
-        <!--
-            selectionsColumn — har row ke aage checkbox dikhata hai
-            Yeh built-in Magento component hai
-            name="ids" important hai — massaction isi se IDs uthata hai
-        -->
         <selectionsColumn name="ids">
             <settings>
                 <indexField>id</indexField>
             </settings>
         </selectionsColumn>
-
         <column name="id">
             <settings>
                 <filter>textRange</filter>
@@ -94,50 +82,42 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
-
         <column name="product_id">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Product ID</label>
             </settings>
         </column>
-
-        <!-- Product Name — DataProvider mein JOIN se aata hai -->
         <column name="product_name">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Product Name</label>
             </settings>
         </column>
-
         <column name="sku">
             <settings>
                 <filter>text</filter>
                 <label translate="true">SKU</label>
             </settings>
         </column>
-
         <column name="old_price">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">Old Price</label>
             </settings>
         </column>
-
         <column name="new_price">
             <settings>
                 <filter>textRange</filter>
                 <label translate="true">New Price</label>
             </settings>
         </column>
-
         <column name="store_id">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Store ID</label>
             </settings>
         </column>
-
         <column name="changed_at"
                 class="Magento\Ui\Component\Listing\Columns\Date"
                 component="Magento_Ui/js/grid/columns/date">
@@ -147,15 +127,12 @@
                 <label translate="true">Changed At</label>
             </settings>
         </column>
-
-        <!-- Changed By — Observer mein AdminSession se aata hai -->
         <column name="changed_by_user">
             <settings>
                 <filter>text</filter>
                 <label translate="true">Changed By</label>
             </settings>
         </column>
-
         <actionsColumn name="actions"
                        class="Mavenbird\ProductPriceHistory\Ui\Component\Listing\Column\Actions">
             <settings>
@@ -163,6 +140,5 @@
                 <label translate="true">Action</label>
             </settings>
         </actionsColumn>
-
     </columns>
 </listing>

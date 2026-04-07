@@ -3,13 +3,10 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <!-- Back button block -->
             <block class="Magento\Backend\Block\Template"
                    name="pricehistory_back_button"
                    template="Mavenbird_ProductPriceHistory::back_button.phtml"
                    before="pricehistory_view_listing"/>
-
-            <!-- History grid -->
             <uiComponent name="pricehistory_view_listing"/>
         </referenceContainer>
     </body>

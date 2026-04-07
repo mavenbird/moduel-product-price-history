@@ -18,11 +18,9 @@ class Index extends Action
 
     public function execute()
     {
-        // URL se product_id lo
         $productId = $this->getRequest()->getParam('product_id');
 
         if (!$productId) {
-            // product_id nahi mila to listing page pe wapas jao
             $this->messageManager->addErrorMessage(__('Product ID not found.'));
             return $this->resultRedirectFactory->create()
                 ->setPath('pricehistory/index/index');

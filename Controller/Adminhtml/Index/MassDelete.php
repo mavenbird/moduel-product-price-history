@@ -1,4 +1,5 @@
 <?php
+
 namespace Mavenbird\ProductPriceHistory\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
@@ -10,7 +11,7 @@ use Magento\Framework\Controller\ResultFactory;
 
 class MassDelete extends Action
 {
-  
+
     const ADMIN_RESOURCE = 'Mavenbird_ProductPriceHistory::delete';
 
     /**
@@ -28,7 +29,7 @@ class MassDelete extends Action
         parent::__construct($context);
     }
 
-  
+
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collection);

@@ -8,8 +8,7 @@ class PriceDiff extends Column
     public function prepare(): void
     {
         parent::prepare();
-        // BUG FIX #2: HTML render karne ke liye bodyTmpl set karo
-        // Bina iske raw HTML string show hoti hai
+    
         $this->setData('config', array_merge(
             (array)$this->getData('config'),
             ['bodyTmpl' => 'ui/grid/cells/html']

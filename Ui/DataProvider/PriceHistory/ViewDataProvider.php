@@ -1,4 +1,5 @@
 <?php
+
 namespace Mavenbird\ProductPriceHistory\Ui\DataProvider\PriceHistory;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
@@ -21,7 +22,6 @@ class ViewDataProvider extends AbstractDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->collection = $collectionFactory->create();
 
-        // BUG FIX #1: product_id ek baar constructor mein lock karo
         $this->productId = (int)$this->request->getParam('product_id');
     }
 
@@ -31,7 +31,6 @@ class ViewDataProvider extends AbstractDataProvider
             $this->collection->addFieldToFilter('product_id', $this->productId);
         }
 
-        // BUG FIX #3: Product name join karo view page ke liye bhi
         $connection   = $this->collection->getResource()->getConnection();
         $productTable = $connection->getTableName('catalog_product_entity');
         $varcharTable = $connection->getTableName('catalog_product_entity_varchar');
@@ -59,11 +58,10 @@ class ViewDataProvider extends AbstractDataProvider
         return $this->collection->toArray();
     }
 
-    // BUG FIX #1 (continued): UI grid ajax calls mein galat 'id' filter block karo
     public function addFilter(\Magento\Framework\Api\Filter $filter): void
     {
         if ($filter->getField() === 'product_id') {
-            return; // product_id filter ko override mat hone do
+            return;
         }
         parent::addFilter($filter);
     }

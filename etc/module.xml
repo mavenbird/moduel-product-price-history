@@ -4,8 +4,6 @@
     <module name="Mavenbird_ProductPriceHistory" setup_version="1.0.0">
 
         <sequence>
-            <!-- Iska matlab: pehle Magento_Catalog load ho, phir hamara module -->
-            <!-- Kyunki hum Catalog ke products use karte hain -->
             <module name="Magento_Catalog"/>
         </sequence>
 
